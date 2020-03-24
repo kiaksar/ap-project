@@ -1,0 +1,14 @@
+D:\ap-project\ap-project\project\project\bin\Debug\project.exe.config
+D:\ap-project\ap-project\project\project\bin\Debug\project.exe
+D:\ap-project\ap-project\project\project\bin\Debug\project.pdb
+D:\ap-project\ap-project\project\project\obj\Debug\project.csprojAssemblyReference.cache
+D:\ap-project\ap-project\project\project\obj\Debug\MainWindow.g.cs
+D:\ap-project\ap-project\project\project\obj\Debug\App.g.cs
+D:\ap-project\ap-project\project\project\obj\Debug\project_MarkupCompile.cache
+D:\ap-project\ap-project\project\project\obj\Debug\project_MarkupCompile.lref
+D:\ap-project\ap-project\project\project\obj\Debug\MainWindow.baml
+D:\ap-project\ap-project\project\project\obj\Debug\project.g.resources
+D:\ap-project\ap-project\project\project\obj\Debug\project.Properties.Resources.resources
+D:\ap-project\ap-project\project\project\obj\Debug\project.csproj.GenerateResource.cache
+D:\ap-project\ap-project\project\project\obj\Debug\project.exe
+D:\ap-project\ap-project\project\project\obj\Debug\project.pdb
