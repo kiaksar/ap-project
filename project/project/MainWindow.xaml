@@ -1,48 +1,84 @@
-﻿<Window x:Class="project.MainWindow"
+﻿<Window x:Name="MainWin" x:Class="project.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:project"
         mc:Ignorable="d"
-        Title="AP Project" Height="600" Width="500">
-    <Grid>
-        <TabControl HorizontalAlignment="Left" Height="570" VerticalAlignment="Top" Width="494" Margin="0,0,-0.4,0">
-            <TabItem Header="Home">
-                <Grid Background="#FFE5E5E5">
-                    <Button Content="Save" HorizontalAlignment="Left" Margin="36,34,0,0" VerticalAlignment="Top" Width="150" Height="35"/>
-                    <Button Content="Load" HorizontalAlignment="Left" Margin="219,34,0,0" VerticalAlignment="Top" Width="150" Height="35"/>
-                    <Button Content="R" HorizontalAlignment="Left" Margin="402,34,0,0" VerticalAlignment="Top" Width="50" Height="35"/>
-                    <Button Content="New" HorizontalAlignment="Left" Margin="36,105,0,0" VerticalAlignment="Top" Width="416" Height="35"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="36,162,0,0" TextWrapping="Wrap" Text="Choose" VerticalAlignment="Top"/>
-                    <RadioButton Content="Part one" HorizontalAlignment="Left" Margin="36,190,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="Choose the 1st city" HorizontalAlignment="Left" Margin="150,190,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="Part two" HorizontalAlignment="Left" Margin="36,240,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="Choose the 2nd city" HorizontalAlignment="Left" Margin="150,240,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="Part three" HorizontalAlignment="Left" Margin="36,290,0,0" VerticalAlignment="Top"/>
-                    <RadioButton Content="Choose the 3rd city" HorizontalAlignment="Left" Margin="150,290,0,0" VerticalAlignment="Top"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="332,187,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="332,237,0,0" VerticalAlignment="Top" Width="120"/>
-                    <ComboBox HorizontalAlignment="Left" Margin="332,287,0,0" VerticalAlignment="Top" Width="120"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="36,335,0,0" TextWrapping="Wrap" Text="Notes" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="84" Margin="36,362,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="416"/>
-                    <Button Content="Next Page" HorizontalAlignment="Left" Margin="36,464,0,0" VerticalAlignment="Top" Width="416" Height="45"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Info">
-                <Grid Background="#FFE5E5E5">
-                    <TextBlock HorizontalAlignment="Left" Margin="25,41,0,0" TextWrapping="Wrap" Text="First name:" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="25,71,0,0" TextWrapping="Wrap" Text="Last name" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="25,101,0,0" TextWrapping="Wrap" Text="Age:" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="25,131,0,0" TextWrapping="Wrap" Text="Equations:" VerticalAlignment="Top"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="101,37,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="101,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
-                    <TextBox HorizontalAlignment="Left" Height="23" Margin="101,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
-                    <TextBox HorizontalAlignment="Left" Height="53" Margin="101,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="215"/>
-                    <Image x:Name="ImageOne" HorizontalAlignment="Left" Height="100" Margin="78,228,0,0" VerticalAlignment="Top" Width="303"/>
-                </Grid>
-            </TabItem>
-        </TabControl>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="AP Project Tabs" VerticalAlignment="Top" Margin="385,3,0,0" Width="84"/>
-    </Grid>
+        Title="AP Project" Height="381.6" Width="371.2" Background="White" ResizeMode="NoResize">
+    <Border Padding="10" BorderBrush="Black">
+        <StackPanel>
+            <TabControl Margin="5 5 5 5">
+                <!--First Tab-->
+                <TabItem Header="Cities">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!--Top Buttons-->
+                        <Button Margin="5 5 5 5" Grid.Column="0" Content="Save" IsEnabled="False"/>
+                        <Button Margin="5 5 5 5" Grid.Column="1" Content="Load"/>
+                        <Button Margin="5 5 5 5" Grid.Column="2" Content="Reset" IsEnabled="False"/>
+                        <Button Margin="5 5 5 5" Content="New" Grid.Row="1" Grid.ColumnSpan="3"/>
+                        <!--Part One-->
+                        <TextBlock Text="Choose Cities" Grid.Row="2" Grid.ColumnSpan="3" Margin="5 10" FontWeight="Bold"/>
+                        <CheckBox Margin="5 5 5 5" Content="City One" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox Margin="5 5 5 5" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
+                        <CheckBox Margin="5 5 5 5" Content="City Two" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox Margin="5 5 5 5" Grid.Row="4" Grid.Column="2" IsEnabled="False"/>
+                        <CheckBox Margin="5 5 5 5" Content="City Three" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox Margin="5 5 5 5" Grid.Row="5" Grid.Column="2" IsEnabled="False"/>
+                        <!--Part Two-->
+                        <TextBlock Text="Notes" Grid.Row="6" Grid.ColumnSpan="3" FontWeight="Bold" Margin="5 10"/>
+                        <RichTextBox Margin="5 5 5 5" Grid.Row="7" Grid.ColumnSpan="3"/>
+                        <Button Margin="5 5 5 5" Content="Go to info Page" Grid.Row="8" Grid.ColumnSpan="3"/>
+                    </Grid>
+
+                </TabItem>
+
+                <!--Second Tab-->
+                <TabItem Header="Info">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="5 5 5 5" Text="First name:" Grid.Column="0" Grid.Row="0"/>
+                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="0"/>
+                        <TextBlock Margin="5 5 5 5" Text="Last name: " Grid.Column="0" Grid.Row="1"/>
+                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
+                        <TextBlock Margin="5 5 5 5" Text="Age: " Grid.Column="0" Grid.Row="2"/>
+                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"/>
+                        <TextBlock Margin="5 5 5 5" Text="Equation: " Grid.Column="0" Grid.Row="3"/>
+                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"/>
+                        <!--Image should be corrected-->
+                        <Image Grid.ColumnSpan="2" Grid.Row="4" Source="f.bmp" Margin="5,5.2,5.2,0" HorizontalAlignment="Center" Height="173"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Border>
 </Window>

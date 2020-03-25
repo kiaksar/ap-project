@@ -23,6 +23,7 @@ namespace project
         public MainWindow()
         {
             InitializeComponent();
+            MainWin.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }
