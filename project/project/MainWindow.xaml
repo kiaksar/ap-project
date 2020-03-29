@@ -4,17 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:project"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         mc:Ignorable="d"
-        Title="AP Project" Height="381.6" Width="371.2" Background="White" ResizeMode="NoResize">
-    <Border Padding="10" BorderBrush="Black">
+        Title="AP Project" Height="373.4" Width="427.2" Background="White" ResizeMode="NoResize">
+    <Border Padding="10">
         <StackPanel>
-            <TabControl Margin="5 5 5 5">
-                <!--First Tab-->
-                <TabItem Header="Cities">
+            <TabControl x:Name="TabCtrl" Margin="5 5 5 5">
+                <!-- First Tab -->
+                <TabItem x:Name="CitiesTab">
+                    <TabItem.Header>
+                        <TextBlock Text="Cities" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold" FontSize="18"/>
+                    </TabItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.25*"/>
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -28,32 +33,50 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <!--Top Buttons-->
-                        <Button Margin="5 5 5 5" Grid.Column="0" Content="Save" IsEnabled="False"/>
-                        <Button Margin="5 5 5 5" Grid.Column="1" Content="Load"/>
-                        <Button Margin="5 5 5 5" Grid.Column="2" Content="Reset" IsEnabled="False"/>
-                        <Button Margin="5 5 5 5" Content="New" Grid.Row="1" Grid.ColumnSpan="3"/>
-                        <!--Part One-->
-                        <TextBlock Text="Choose Cities" Grid.Row="2" Grid.ColumnSpan="3" Margin="5 10" FontWeight="Bold"/>
-                        <CheckBox Margin="5 5 5 5" Content="City One" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
-                        <ComboBox Margin="5 5 5 5" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
-                        <CheckBox Margin="5 5 5 5" Content="City Two" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
-                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
-                        <ComboBox Margin="5 5 5 5" Grid.Row="4" Grid.Column="2" IsEnabled="False"/>
-                        <CheckBox Margin="5 5 5 5" Content="City Three" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
-                        <CheckBox Margin="5 5 5 5" Content="Choose" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
-                        <ComboBox Margin="5 5 5 5" Grid.Row="5" Grid.Column="2" IsEnabled="False"/>
-                        <!--Part Two-->
-                        <TextBlock Text="Notes" Grid.Row="6" Grid.ColumnSpan="3" FontWeight="Bold" Margin="5 10"/>
-                        <RichTextBox Margin="5 5 5 5" Grid.Row="7" Grid.ColumnSpan="3"/>
-                        <Button Margin="5 5 5 5" Content="Go to info Page" Grid.Row="8" Grid.ColumnSpan="3"/>
+                        <!-- Top Buttons -->
+                        <Button x:Name="SaveButton" Padding="3" Margin="5 5 5 5" Grid.Column="0" Content="Save" IsEnabled="False" FontWeight="Bold"/>
+                        <Button x:Name="LoadButton" Padding="3" Margin="5 5 5 5" Grid.Column="1" Content="Load" FontWeight="Bold"/>
+                        <Button x:Name="ResetButton" Padding="3" Margin="5 5 5 5" Grid.Column="2" Grid.ColumnSpan="2" Content="Reset" IsEnabled="False" FontWeight="Bold"/>
+                        <Button x:Name="NewButton" Padding="7" Margin="5 5 5 5" Content="New" Grid.Row="1" Grid.ColumnSpan="4" Click="NewButton_Click" FontWeight="Bold"/>
+                        <!-- Part One -->
+                        <TextBlock Text="Choose Cities" Grid.Row="2" Grid.ColumnSpan="3" Margin="5 10 5 5" FontWeight="Bold"/>
+                        <CheckBox Checked="CityOneCH_Checked" Unchecked="CityOneCH_Unchecked" x:Name="CityOneCH" Margin="5 5 5 5" Content="City One" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Checked="ChooseOneCH_Checked" Unchecked="ChooseOneCH_Unchecked" x:Name="ChooseOneCH" Margin="5 5 5 5" Content="Choose" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox x:Name="CityOneCombo" Margin="5 5 5 5" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" IsEnabled="False">
+                            <ComboBoxItem Content="Tehran"/>
+                            <ComboBoxItem Content="Mash'had"/>
+                            <ComboBoxItem Content="Esfahan"/>
+                            <ComboBoxItem Content="Shiraz"/>
+                        </ComboBox>
+                        <CheckBox Checked="CityTwoCH_Checked" Unchecked="CityTwoCH_Unchecked" x:Name="CityTwoCH" Margin="5 5 5 5" Content="City Two" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Checked="ChooseTwoCH_Checked" Unchecked="ChooseTwoCH_Unchecked" x:Name="ChooseTwoCH" Margin="5 5 5 5" Content="Choose" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox x:Name="CityTwoCombo" Margin="5 5 5 5" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" IsEnabled="False">
+                            <ComboBoxItem Content="Sydney"/>
+                            <ComboBoxItem Content="Melbourne"/>
+                            <ComboBoxItem Content="Wollongong"/>
+                            <ComboBoxItem Content="perth"/>
+                        </ComboBox>
+                        <CheckBox Checked="CityThreeCH_Checked" Unchecked="CityThreeCH_Unchecked" x:Name="CityThreeCH" Margin="5 5 5 5" Content="City Three" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
+                        <CheckBox Checked="ChooseThreeCH_Checked" Unchecked="ChooseThreeCH_Unchecked" x:Name="ChooseThreeCH" Margin="5 5 5 5" Content="Choose" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" IsEnabled="False"/>
+                        <ComboBox x:Name="CityThreeCombo" Margin="5 5 5 5" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" IsEnabled="False">
+                            <ComboBoxItem Content="New York"/>
+                            <ComboBoxItem Content="Chicago"/>
+                            <ComboBoxItem Content="Las Vegas"/>
+                            <ComboBoxItem Content="Los Angeles"/>
+                        </ComboBox>
+                        <!-- Part Two -->
+                        <TextBlock Text="Notes" Grid.Row="6" Grid.ColumnSpan="4" FontWeight="Bold" Margin="5 10 5 5"/>
+                        <RichTextBox x:Name="NoteBox" Padding="2" Margin="5 5 5 5" Grid.Row="7" Grid.ColumnSpan="4" SizeChanged="NoteBox_SizeChanged" TextChanged="NoteBox_TextChanged"/>
+                        <Button x:Name="NextButton" Padding="7" Margin="5 5 5 5" Content="Go to info Page" Grid.Row="8" Grid.ColumnSpan="4" Click="NextButton_Click" FontWeight="Bold"/>
                     </Grid>
 
                 </TabItem>
 
-                <!--Second Tab-->
-                <TabItem Header="Info">
+                <!-- Second Tab -->
+                <TabItem x:Name="InfoTab">
+                    <TabItem.Header>
+                        <TextBlock Text="Info" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold" FontSize="18"/>
+                    </TabItem.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.25*"/>
@@ -66,17 +89,31 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Margin="5 5 5 5" Text="First name:" Grid.Column="0" Grid.Row="0"/>
-                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="0"/>
-                        <TextBlock Margin="5 5 5 5" Text="Last name: " Grid.Column="0" Grid.Row="1"/>
-                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
-                        <TextBlock Margin="5 5 5 5" Text="Age: " Grid.Column="0" Grid.Row="2"/>
-                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"/>
-                        <TextBlock Margin="5 5 5 5" Text="Equation: " Grid.Column="0" Grid.Row="3"/>
-                        <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"/>
-                        <!--Image should be corrected-->
-                        <Image Grid.ColumnSpan="2" Grid.Row="4" Source="f.bmp" Margin="5,5.2,5.2,0" HorizontalAlignment="Center" Height="173"/>
-                    </Grid>
+                        <TextBlock Margin="4 5 5 5" Text="First name:" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox TextChanged="FNameBox_TextChanged" x:Name="FNameBox" Padding="2" Margin="5 5 5 5" Grid.Column="1" Grid.Row="0"/>
+                        <TextBlock Margin="5 5 5 5" Text="Last name: " Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox TextChanged="LNameBox_TextChanged" x:Name="LNameBox" Padding="2" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
+                        <TextBlock Margin="5 5 5 5" Text="Age: " Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <TextBox TextChanged="AgeBox_TextChanged" x:Name="AgeBox" Padding="2" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"/>
+                        <TextBlock Margin="5 5 5 5" Text="Equation: " Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold"/>
+                        <RichTextBox TextChanged="EquationBox_TextChanged" x:Name="EquationBox" Padding="2" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3" SizeChanged="EquationBox_SizeChanged"/>
+                        <Image Grid.ColumnSpan="2" Grid.Row="4" Source="f.bmp" Margin="5,5,5,5" HorizontalAlignment="Center" Height="173"/>
+                    </Grid> 
+                </TabItem>
+                <!-- Text block On the tab item part of tab control -->
+                <!-- This part change some properties of Tab item and make it just like a text block -->
+                <TabItem IsEnabled="False" >
+                    <TabItem.Style>
+                        <Style TargetType="TabItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <TextBlock Text="AP Project" Margin="220,0,0,0" VerticalAlignment="Stretch" FontSize="17" FontFamily="Tw Cen MT Condensed Extra Bold" FontWeight="Bold"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TabItem.Style>
                 </TabItem>
             </TabControl>
         </StackPanel>
